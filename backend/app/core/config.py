@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     API_KEY_HEADER: str = "X-API-Key"
     RATE_LIMIT_PER_MINUTE: int = 100
 
-    ALLOWED_ORIGINS: List[str] = ["http://localhost:3000"]
+    ALLOWED_ORIGINS: List[str] = ["*"]
 
     MODEL_PATH: str = "models/url_classifier.h5"
     MAX_URL_LENGTH: int = 200
