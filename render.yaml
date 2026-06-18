@@ -1,0 +1,34 @@
+services:
+  # Backend API Service
+  - type: web
+    name: url-guardian-api
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: url-guardian-db
+          property: connectionString
+
+  # Frontend Service
+  - type: web
+    name: url-guardian-frontend
+    env: static
+    buildCommand: cd frontend && npm install --legacy-peer-deps && npm run build
+    staticPublishPath: ./frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          name: url-guardian-api
+          type: web
+          property: url
+
+databases:
+  - name: url-guardian-db
+    databaseName: url_guardian
+    plan: free

@@ -1,0 +1,103 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.so
+*.egg-info/
+dist/
+build/
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Database
+*.db
+*.sqlite3
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# ML Models
+*.h5
+*.pb
+*.pkl
+*.joblib
+*.model
+model_artifacts/
+saved_models/
+
+# ML Experiments
+backend/models/*
+!backend/models/.gitkeep
+
+# Dataset (if large)
+*.csv
+!sample_data.csv
+urldata.csv
+
+# PyTorch / ML Cache
+.cache/
+torch/
+
+# Frontend
+node_modules/
+frontend/node_modules/
+
+# React Build
+frontend/build/
+frontend/dist/
+
+# Testing
+.pytest_cache/
+.coverage
+coverage/
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Docker
+docker-compose.override.yml
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.pem
+*.key
+credentials.json
+
+# Local configuration overrides
+local_settings.py
+config.local.py
+
+# Additional project-specific ignores
+backend/url_guardian.db
+backend/*.db
+models/*.pth
+models/*.pkl
+frontend/package-lock.json
+
+# Keep .env.example files
+!.env.example
+!backend/.env.example
+!frontend/.env.example
