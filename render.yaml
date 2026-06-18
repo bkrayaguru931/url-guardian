@@ -7,7 +7,7 @@ services:
     startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.0
+        value: "3.11.0"
       - key: ENVIRONMENT
         value: production
       - key: DATABASE_URL
@@ -21,12 +21,6 @@ services:
     env: static
     buildCommand: cd frontend && npm install --legacy-peer-deps && npm run build
     staticPublishPath: ./frontend/build
-    envVars:
-      - key: REACT_APP_API_URL
-        fromService:
-          name: url-guardian-api
-          type: web
-          property: url
 
 databases:
   - name: url-guardian-db
